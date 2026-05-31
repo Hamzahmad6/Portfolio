@@ -6,60 +6,56 @@
 <title>Hamza Ahmed | Software Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-/* ===== GLOBAL ===== */
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  padding: 80px 20px;
 }
 
 body {
   margin: 0;
   font-family: system-ui;
+  background: radial-gradient(circle at top, #0b1220, #020617, #0a0a0a);
   color: white;
-  background: radial-gradient(circle at top, #0f172a, #020617, #0b1020);
   overflow-x: hidden;
 }
 
-/* ===== BACKGROUND ORBS ===== */
-.orb {
-  position: absolute;
+/* CURSOR */
+.cursor {
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-  animation: float 10s infinite ease-in-out;
+  position: fixed;
+  background: rgba(56,189,248,0.7);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  z-index: 9999;
 }
 
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-40px); }
-  100% { transform: translateY(0); }
-}
-
-/* ===== GLASS ===== */
+/* GLASS */
 .glass {
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(18px);
   border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.35s ease;
+  transition: 0.35s;
 }
 
 .glass:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
 }
 
-/* ===== BUTTONS ===== */
-.btn {
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(34,211,238,0.3);
-}
-
-/* ===== LINKS ===== */
+/* LINKS */
 a {
   transition: 0.3s;
 }
@@ -67,12 +63,16 @@ a:hover {
   color: #38bdf8;
 }
 
-/* ===== SECTION SPACING (FIXED UX ISSUE) ===== */
-section {
-  padding: 90px 20px;
+/* BUTTONS */
+.btn {
+  transition: 0.3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(56,189,248,0.3);
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav {
   backdrop-filter: blur(20px);
 }
@@ -81,20 +81,20 @@ nav {
 
 <body>
 
-<!-- BACKGROUND EFFECTS -->
-<div class="orb w-80 h-80 bg-cyan-500 top-20 left-10"></div>
-<div class="orb w-96 h-96 bg-purple-600 bottom-10 right-10"></div>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <header class="fixed w-full z-50">
 <nav class="glass flex justify-between items-center px-6 py-4 mx-4 mt-4 rounded-2xl">
 
-<h1 class="text-cyan-400 font-bold text-lg">Hamza Ahmed</h1>
+<h1 class="text-cyan-400 font-bold">Hamza Ahmed</h1>
 
 <div class="flex gap-6 text-sm">
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#experience">Experience</a>
+<a href="#education">Education</a>
 <a href="#contact">Contact</a>
 </div>
 
@@ -102,18 +102,16 @@ nav {
 </header>
 
 <!-- HERO -->
-<section class="flex flex-col justify-center items-center text-center min-h-screen">
+<section class="flex flex-col justify-center items-center text-center">
 
-<h1 class="text-6xl font-bold text-cyan-300 drop-shadow-lg">
-Hamza Ahmed
-</h1>
+<h1 id="hero" class="text-6xl font-bold text-cyan-300"></h1>
 
 <p class="text-xl text-gray-300 mt-4">
-Software Engineer · Backend · Data Enthusiast
+Software Engineer · Backend · Data Analytics
 </p>
 
-<p class="text-gray-400 mt-3 max-w-xl">
-Building scalable systems, REST APIs, and data-driven applications with clean architecture and real-world impact.
+<p class="text-gray-400 max-w-xl mt-4">
+Building scalable backend systems, REST APIs, and data-driven applications with clean architecture and real-world impact.
 </p>
 
 <div class="mt-8 flex gap-4">
@@ -135,14 +133,13 @@ Download CV
 
 <p class="text-gray-300 leading-relaxed">
 Computer Science sophomore at Nile University with hands-on industry experience building production-grade RESTful APIs,
-full-stack web applications, and object-oriented systems. Completed a software engineering internship designing and
-deploying Java/Spring Boot services against Oracle Database, applying SOLID principles, design patterns, and clean-code
-practices in a professional team environment.
+full-stack applications, and object-oriented systems. Experienced in Java Spring Boot backend development with Oracle SQL,
+applying SOLID principles, design patterns, and clean architecture in professional environments.
 
 <br><br>
 
-Enthusiastic about Data and analytics. Actively seeking backend, data analysis, and software engineering internship programs
-where technical depth and clean architecture deliver measurable impact.
+Passionate about Data Analytics and backend engineering. Actively seeking internships in software engineering, backend development,
+and data-driven systems where scalable architecture creates real-world impact.
 </p>
 
 </section>
@@ -157,30 +154,34 @@ Projects
 <div class="grid md:grid-cols-2 gap-6">
 
 <a href="https://github.com/Hamzahmad6/Clinic-System" target="_blank" class="glass p-6 rounded-2xl">
-<h3 class="text-green-300 font-bold text-lg">Clinic Appointment System (Java)</h3>
+<h3 class="text-green-300 font-bold">Clinic Appointment System (Java)</h3>
 <p class="text-gray-300 mt-2">
-Full OOP system managing doctors, patients, and appointments using clean architecture and menu-driven logic.
+Enterprise-grade OOP system simulating real clinic operations including patient management, doctor scheduling,
+and appointment workflows with layered architecture and modular design.
 </p>
 </a>
 
 <a href="https://github.com/Hamzahmad6/LibrarySystemCPP" target="_blank" class="glass p-6 rounded-2xl">
-<h3 class="text-cyan-300 font-bold text-lg">Library System (C++)</h3>
+<h3 class="text-cyan-300 font-bold">Library System (C++)</h3>
 <p class="text-gray-300 mt-2">
-DSA-based system with efficient search, CRUD operations, and structured data handling.
+Data structures-based system implementing optimized search, CRUD operations, and memory-efficient book management logic
+designed to simulate real-world library workflows.
 </p>
 </a>
 
 <a href="https://github.com/Hamzahmad6/TicTacToeGame" target="_blank" class="glass p-6 rounded-2xl">
-<h3 class="text-purple-300 font-bold text-lg">Tic Tac Toe Game (Java)</h3>
+<h3 class="text-purple-300 font-bold">Tic Tac Toe Game (Java)</h3>
 <p class="text-gray-300 mt-2">
-Interactive console game with win detection, validation, and modular design.
+Interactive console-based game demonstrating algorithmic logic, win-condition detection, input validation,
+and structured OOP-style programming practices.
 </p>
 </a>
 
 <a href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz" target="_blank" class="glass p-6 rounded-2xl">
-<h3 class="text-pink-300 font-bold text-lg">Chemistry Quiz (Python)</h3>
+<h3 class="text-pink-300 font-bold">Chemistry Quiz (Python)</h3>
 <p class="text-gray-300 mt-2">
-GUI-based quiz application with randomized MCQs, scoring system, and interactive UI.
+GUI-based educational quiz system built using Tkinter featuring dynamic MCQs, scoring engine,
+and structured question management system.
 </p>
 </a>
 
@@ -191,22 +192,48 @@ GUI-based quiz application with randomized MCQs, scoring system, and interactive
 <!-- EXPERIENCE -->
 <section id="experience" class="max-w-4xl mx-auto">
 
-<h2 class="text-3xl text-cyan-300 font-bold text-center mb-6">
+<h2 class="text-3xl text-cyan-300 text-center font-bold mb-6">
 Experience
 </h2>
 
 <div class="glass p-6 rounded-2xl">
 
-<p class="font-bold">Alkan Telecom — Software Engineering Intern</p>
-<p class="text-gray-400">Jul – Aug 2025</p>
+<p class="font-bold text-lg">Alkan Telecom — Software Engineering Intern</p>
+<p class="text-gray-400">Jul – Aug 2025 · Cairo, Egypt</p>
 
-<ul class="list-disc list-inside text-gray-300 mt-3 space-y-2">
-<li>Built REST APIs using Java & Spring Boot</li>
-<li>Applied SOLID principles & design patterns</li>
-<li>Worked with Oracle SQL databases</li>
-<li>Developed IBM Cloud chatbot system</li>
-<li>Used Git/GitHub workflows in team environment</li>
+<ul class="text-gray-300 mt-4 space-y-2 list-disc list-inside">
+<li>Designed and implemented production-ready RESTful APIs using Java Spring Boot</li>
+<li>Built layered backend architecture applying SOLID principles and design patterns</li>
+<li>Executed complex Oracle SQL queries, joins, and transactional workflows</li>
+<li>Developed IBM Cloud chatbot using NLP services for automation systems</li>
+<li>Built dynamic backend-driven UI using Thymeleaf within Spring MVC</li>
+<li>Collaborated in Git-based Agile workflow with code reviews and branching strategies</li>
 </ul>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="max-w-4xl mx-auto">
+
+<h2 class="text-3xl text-cyan-300 text-center font-bold mb-6">
+Education
+</h2>
+
+<div class="glass p-6 rounded-2xl">
+
+<p class="font-bold">Nile University — Computer Science & IT</p>
+<p class="text-gray-400">2024 – Present</p>
+<p class="text-gray-300 mt-2">
+Data Structures · Algorithms · OOP · Java · C++ · Python · Software Design
+</p>
+
+<br>
+
+<p class="font-bold">Stanford International School</p>
+<p class="text-gray-400">2021 – 2024</p>
+<p class="text-gray-300">High School Diploma | GPA: 3.85</p>
 
 </div>
 
@@ -217,18 +244,17 @@ Experience
 
 <h2 class="text-3xl text-cyan-300 font-bold mb-6">Contact</h2>
 
-<p class="text-gray-300 mb-2">
-<i class="fa fa-envelope text-cyan-400"></i> 
-Hamzabatawy@gmail.com
+<p class="text-gray-300">
+<i class="fa fa-envelope text-cyan-400"></i> Hamzabatawy@gmail.com
 </p>
 
-<p class="mb-2">
+<p class="mt-3">
 <a href="https://linkedin.com/in/hamza-elbatawy" target="_blank">
 <i class="fab fa-linkedin text-blue-400"></i> LinkedIn
 </a>
 </p>
 
-<p>
+<p class="mt-3">
 <a href="https://github.com/Hamzahmad6" target="_blank">
 <i class="fab fa-github"></i> GitHub
 </a>
@@ -239,6 +265,35 @@ Hamzabatawy@gmail.com
 <footer class="text-center py-6 text-gray-500">
 © 2026 Hamza Ahmed
 </footer>
+
+<script>
+/* HERO TYPING */
+const text = "Hamza Ahmed";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("hero").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+/* CURSOR */
+const cursor = document.getElementById("cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+/* GSAP */
+gsap.from("section", {
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  stagger: 0.15
+});
+</script>
 
 </body>
 </html>
