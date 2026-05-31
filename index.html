@@ -44,7 +44,7 @@
 
     <h1 class="text-xl font-bold text-cyan-400">Hamza Ahmed</h1>
 
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
 
       <nav class="hidden md:flex gap-4 text-sm">
         <a href="#projects">Projects</a>
@@ -52,7 +52,6 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- DARK MODE TOGGLE -->
       <button onclick="toggleMode()" class="px-3 py-1 rounded bg-cyan-500 text-black text-sm">
         🌙 / ☀️
       </button>
@@ -73,8 +72,13 @@
   </p>
 
   <div class="mt-6 flex gap-4">
-    <a href="#projects" class="px-5 py-3 bg-cyan-500 rounded glow text-black">View Projects</a>
-    <a href="cv.pdf" download class="px-5 py-3 bg-purple-500 rounded glow">Download CV</a>
+    <a href="#projects" class="px-5 py-3 bg-cyan-500 rounded glow text-black">
+      View Projects
+    </a>
+
+    <a href="Hamza_Ahmed_Final.pdf" download class="px-5 py-3 bg-purple-500 rounded glow">
+      📄 Download CV
+    </a>
   </div>
 
 </section>
@@ -84,27 +88,52 @@
   <h2 class="text-3xl text-cyan-400 mb-8">Skills</h2>
 
   <div class="grid md:grid-cols-2 gap-6">
-    <div><p>C++</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-cyan-400" style="width:90%"></div></div></div>
-    <div><p>Java</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-purple-400" style="width:85%"></div></div></div>
-    <div><p>Python</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-pink-400" style="width:80%"></div></div></div>
-    <div><p>SQL</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-yellow-400" style="width:75%"></div></div></div>
+
+    <div>
+      <p>C++</p>
+      <div class="h-2 bg-gray-700 rounded">
+        <div class="h-2 bg-cyan-400" style="width:90%"></div>
+      </div>
+    </div>
+
+    <div>
+      <p>Java</p>
+      <div class="h-2 bg-gray-700 rounded">
+        <div class="h-2 bg-purple-400" style="width:85%"></div>
+      </div>
+    </div>
+
+    <div>
+      <p>Python</p>
+      <div class="h-2 bg-gray-700 rounded">
+        <div class="h-2 bg-pink-400" style="width:80%"></div>
+      </div>
+    </div>
+
+    <div>
+      <p>SQL</p>
+      <div class="h-2 bg-gray-700 rounded">
+        <div class="h-2 bg-yellow-400" style="width:75%"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- PROJECT FILTERS -->
+<!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
 
   <h2 class="text-3xl text-cyan-400 mb-6">Projects</h2>
 
   <!-- FILTER BUTTONS -->
-  <div class="flex gap-3 mb-8 flex-wrap">
+  <div class="flex flex-wrap gap-3 mb-8">
     <button onclick="filterProjects('all')" class="px-4 py-2 bg-gray-700 rounded">All</button>
     <button onclick="filterProjects('java')" class="px-4 py-2 bg-purple-500 rounded">Java</button>
     <button onclick="filterProjects('python')" class="px-4 py-2 bg-green-500 rounded">Python</button>
     <button onclick="filterProjects('cpp')" class="px-4 py-2 bg-cyan-500 rounded">C++</button>
   </div>
 
-  <!-- PROJECTS -->
+  <!-- PROJECT CARDS -->
   <div class="grid md:grid-cols-2 gap-6">
 
     <div class="project glass p-6 rounded-xl glow" data-lang="python">
@@ -128,8 +157,10 @@
 <!-- CONTACT -->
 <section id="contact" class="text-center py-20">
   <h2 class="text-3xl text-cyan-400 mb-4">Contact</h2>
-  <p>Email: Hamzabatawy@gmail.com</p>
-  <p>GitHub: github.com/Hamzahmad6</p>
+
+  <p><i class="fa fa-envelope text-cyan-400"></i> Hamzabatawy@gmail.com</p>
+  <p><i class="fab fa-linkedin text-blue-400"></i> linkedin.com/in/hamza-elbatawy</p>
+  <p><i class="fab fa-github text-white"></i> github.com/Hamzahmad6</p>
 </section>
 
 <footer class="text-center py-6 text-gray-500">
@@ -137,7 +168,7 @@
 </footer>
 
 <script>
-/* DARK MODE */
+/* DARK / LIGHT MODE */
 function toggleMode() {
   document.body.classList.toggle("light");
 }
