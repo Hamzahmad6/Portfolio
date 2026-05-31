@@ -10,174 +10,187 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
 
-/* BACKGROUND ANIMATION */
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+/* Background */
 body {
-  background: linear-gradient(-45deg, #0f172a, #020617, #1e1b4b, #0f172a);
-  background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite;
+  margin: 0;
+  background: #0a0a0a;
   color: white;
+  overflow-x: hidden;
+  font-family: system-ui;
 }
 
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+/* Floating orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 10s infinite ease-in-out;
 }
 
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* Glass */
 .glass {
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s ease;
+  transition: 0.4s;
 }
 
 .glass:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
+/* Smooth links */
 a {
   transition: 0.3s;
 }
-
 a:hover {
   color: #22d3ee;
-  transform: translateY(-2px);
 }
 
-button {
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
+/* Navbar blur */
+nav {
+  backdrop-filter: blur(20px);
 }
 </style>
 </head>
 
-<body class="pt-20">
+<body>
+
+<!-- FLOATING BACKGROUND -->
+<div class="orb w-72 h-72 bg-cyan-500 top-20 left-10"></div>
+<div class="orb w-96 h-96 bg-purple-600 bottom-10 right-10"></div>
 
 <!-- NAVBAR -->
-<header class="fixed w-full glass z-50">
-<div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+<header class="fixed w-full z-50">
+<nav class="glass flex justify-between items-center px-6 py-4 mx-4 mt-4 rounded-2xl">
 
-<h1 class="text-xl font-bold text-cyan-400">Hamza Ahmed</h1>
+<h1 class="text-cyan-400 font-bold">Hamza Ahmed</h1>
 
-<nav class="hidden md:flex gap-6 text-sm">
+<div class="flex gap-6 text-sm">
+<a href="#home">Home</a>
+<a href="#about">About</a>
 <a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
-</nav>
-
 </div>
+
+</nav>
 </header>
 
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+<section id="home" class="flex flex-col justify-center items-center text-center px-6">
 
-<h1 class="text-6xl font-bold text-cyan-400 drop-shadow-lg">
+<h1 class="text-6xl font-bold text-cyan-400">
 Hamza Ahmed
 </h1>
 
-<p class="text-xl mt-4 text-gray-300">
-Software Developer | Data Analytics Enthusiast
+<p class="text-xl text-gray-300 mt-4">
+Software Developer • Data Analytics Enthusiast
 </p>
 
-<a href="#projects" class="mt-6 px-6 py-3 bg-cyan-500 rounded-xl text-black font-bold">
-Explore Projects
+<div class="mt-8 flex gap-4">
+<a href="#projects" class="px-6 py-3 bg-cyan-500 text-black rounded-xl">
+Explore Work
 </a>
+
+<a href="Hamza_Ahmed_Final.pdf" download class="px-6 py-3 bg-purple-600 rounded-xl">
+Download CV
+</a>
+</div>
 
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="max-w-5xl mx-auto py-20 px-6">
-<h2 class="text-3xl text-cyan-400 mb-8">Skills</h2>
+<!-- ABOUT -->
+<section id="about" class="flex flex-col justify-center items-center text-center px-6">
 
-<div class="grid md:grid-cols-2 gap-6">
+<h2 class="text-4xl text-cyan-400 font-bold">About Me</h2>
 
-<div>C++ <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-cyan-400" style="width:90%"></div></div></div>
-<div>Java <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-purple-400" style="width:85%"></div></div></div>
-<div>Python <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-pink-400" style="width:80%"></div></div></div>
-<div>SQL <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-yellow-400" style="width:75%"></div></div></div>
+<p class="max-w-2xl text-gray-300 mt-6 leading-relaxed">
+Computer Science student passionate about building scalable systems, solving real-world problems,
+and turning data into insights. Seeking internships to contribute and grow as a software engineer.
+</p>
 
-</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="max-w-6xl mx-auto py-20 px-6">
+<section id="projects" class="px-6 flex flex-col justify-center">
 
-<h2 class="text-3xl text-cyan-400 mb-10">Projects</h2>
+<h2 class="text-4xl text-cyan-400 text-center font-bold mb-10">
+Projects
+</h2>
 
-<div class="grid md:grid-cols-2 gap-8">
+<div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
 
-<!-- PROJECT 1 -->
 <a href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz" target="_blank"
-class="glass p-6 rounded-2xl block">
-<h3 class="text-xl font-bold text-cyan-300">Chemistry Quiz (Python)</h3>
-<p class="text-gray-300 mt-2">
-Interactive Tkinter quiz with MCQs, scoring system, and randomized questions.
-</p>
-<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+class="glass p-6 rounded-2xl">
+<h3 class="text-xl text-cyan-300">Chemistry Quiz (Python)</h3>
+<p class="text-gray-400 mt-2">Tkinter quiz app with MCQs and scoring system.</p>
 </a>
 
-<!-- PROJECT 2 -->
 <a href="https://github.com/Hamzahmad6/LibrarySystemCPP" target="_blank"
-class="glass p-6 rounded-2xl block">
-<h3 class="text-xl font-bold text-purple-300">Library System (C++)</h3>
-<p class="text-gray-300 mt-2">
-DSA-based system using arrays, searching, and efficient book management logic.
-</p>
-<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+class="glass p-6 rounded-2xl">
+<h3 class="text-xl text-purple-300">Library System (C++)</h3>
+<p class="text-gray-400 mt-2">DSA-based system for book management and search.</p>
 </a>
 
-<!-- PROJECT 3 -->
 <a href="https://github.com/Hamzahmad6/TicTacToeGame" target="_blank"
-class="glass p-6 rounded-2xl block">
-<h3 class="text-xl font-bold text-pink-300">Tic Tac Toe (Java)</h3>
-<p class="text-gray-300 mt-2">
-2-player console game with full logic, validation, and win detection system.
-</p>
-<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+class="glass p-6 rounded-2xl">
+<h3 class="text-xl text-pink-300">Tic Tac Toe (Java)</h3>
+<p class="text-gray-400 mt-2">2-player console game with full logic system.</p>
 </a>
 
-<!-- PROJECT 4 (NEW) -->
 <a href="https://github.com/Hamzahmad6/Clinic-System" target="_blank"
-class="glass p-6 rounded-2xl block">
-<h3 class="text-xl font-bold text-green-300">Clinic Management System (C++)</h3>
-<p class="text-gray-300 mt-2">
-Console-based system for managing patients, doctors, appointments, and records using OOP.
-</p>
-<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+class="glass p-6 rounded-2xl">
+<h3 class="text-xl text-green-300">Clinic System (C++)</h3>
+<p class="text-gray-400 mt-2">OOP system managing patients, doctors & appointments.</p>
 </a>
 
 </div>
+
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="text-center py-20">
+<section id="contact" class="flex flex-col justify-center items-center text-center px-6">
 
-<h2 class="text-3xl text-cyan-400 mb-6">Contact</h2>
+<h2 class="text-4xl text-cyan-400 font-bold">Contact</h2>
 
-<p class="mb-2">
+<div class="mt-6 space-y-3 text-gray-300">
+
+<p>
 <i class="fa fa-envelope text-cyan-400"></i>
 Hamzabatawy@gmail.com
 </p>
 
-<p class="mb-2">
-<a href="https://linkedin.com/in/hamza-elbatawy" target="_blank"
-class="text-blue-400">
-<i class="fab fa-linkedin"></i> LinkedIn
+<p>
+<a href="https://linkedin.com/in/hamza-elbatawy" target="_blank">
+<i class="fab fa-linkedin text-blue-400"></i> LinkedIn
 </a>
 </p>
 
 <p>
-<a href="https://github.com/Hamzahmad6" target="_blank"
-class="text-white">
+<a href="https://github.com/Hamzahmad6" target="_blank">
 <i class="fab fa-github"></i> GitHub
 </a>
 </p>
+
+</div>
 
 </section>
 
@@ -187,8 +200,8 @@ class="text-white">
 
 <script>
 ScrollReveal().reveal('section', {
-distance: '40px',
-duration: 900,
+distance: '30px',
+duration: 800,
 origin: 'bottom'
 });
 </script>
