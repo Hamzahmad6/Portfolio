@@ -1,196 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hamza Ahmed | Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hamza Ahmed | Portfolio</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <style>
-    html { scroll-behavior: smooth; }
+<style>
+html { scroll-behavior: smooth; }
 
-    .glass {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+/* BACKGROUND ANIMATION */
+body {
+  background: linear-gradient(-45deg, #0f172a, #020617, #1e1b4b, #0f172a);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color: white;
+}
 
-    .glow:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 20px rgba(34,211,238,0.4);
-      transition: 0.3s;
-    }
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
-    body.light {
-      background: #f5f7fb;
-      color: #111;
-    }
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.4s ease;
+}
 
-    body.light .glass {
-      background: rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-  </style>
+.glass:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+a {
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #22d3ee;
+  transform: translateY(-2px);
+}
+
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+</style>
 </head>
 
-<body class="pt-20 bg-gradient-to-br from-black via-slate-900 to-indigo-950 text-white">
+<body class="pt-20">
 
 <!-- NAVBAR -->
 <header class="fixed w-full glass z-50">
-  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+<div class="max-w-6xl mx-auto flex justify-between items-center p-4">
 
-    <h1 class="text-xl font-bold text-cyan-400">Hamza Ahmed</h1>
+<h1 class="text-xl font-bold text-cyan-400">Hamza Ahmed</h1>
 
-    <div class="flex items-center gap-3">
+<nav class="hidden md:flex gap-6 text-sm">
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
 
-      <nav class="hidden md:flex gap-4 text-sm">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button onclick="toggleMode()" class="px-3 py-1 rounded bg-cyan-500 text-black text-sm">
-        🌙 / ☀️
-      </button>
-
-    </div>
-  </div>
+</div>
 </header>
 
 <!-- HERO -->
 <section class="h-screen flex flex-col justify-center items-center text-center px-6">
 
-  <h1 class="text-5xl md:text-6xl font-bold text-cyan-400">
-    Hamza Ahmed
-  </h1>
+<h1 class="text-6xl font-bold text-cyan-400 drop-shadow-lg">
+Hamza Ahmed
+</h1>
 
-  <p class="text-lg mt-3 text-gray-300">
-    Software Developer | Data Analytics Enthusiast
-  </p>
+<p class="text-xl mt-4 text-gray-300">
+Software Developer | Data Analytics Enthusiast
+</p>
 
-  <div class="mt-6 flex gap-4">
-    <a href="#projects" class="px-5 py-3 bg-cyan-500 rounded glow text-black">
-      View Projects
-    </a>
-
-    <a href="Hamza_Ahmed_Final.pdf" download class="px-5 py-3 bg-purple-500 rounded glow">
-      📄 Download CV
-    </a>
-  </div>
+<a href="#projects" class="mt-6 px-6 py-3 bg-cyan-500 rounded-xl text-black font-bold">
+Explore Projects
+</a>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="max-w-5xl mx-auto py-20 px-6">
-  <h2 class="text-3xl text-cyan-400 mb-8">Skills</h2>
+<h2 class="text-3xl text-cyan-400 mb-8">Skills</h2>
 
-  <div class="grid md:grid-cols-2 gap-6">
+<div class="grid md:grid-cols-2 gap-6">
 
-    <div>
-      <p>C++</p>
-      <div class="h-2 bg-gray-700 rounded">
-        <div class="h-2 bg-cyan-400" style="width:90%"></div>
-      </div>
-    </div>
+<div>C++ <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-cyan-400" style="width:90%"></div></div></div>
+<div>Java <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-purple-400" style="width:85%"></div></div></div>
+<div>Python <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-pink-400" style="width:80%"></div></div></div>
+<div>SQL <div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-yellow-400" style="width:75%"></div></div></div>
 
-    <div>
-      <p>Java</p>
-      <div class="h-2 bg-gray-700 rounded">
-        <div class="h-2 bg-purple-400" style="width:85%"></div>
-      </div>
-    </div>
-
-    <div>
-      <p>Python</p>
-      <div class="h-2 bg-gray-700 rounded">
-        <div class="h-2 bg-pink-400" style="width:80%"></div>
-      </div>
-    </div>
-
-    <div>
-      <p>SQL</p>
-      <div class="h-2 bg-gray-700 rounded">
-        <div class="h-2 bg-yellow-400" style="width:75%"></div>
-      </div>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
 
-  <h2 class="text-3xl text-cyan-400 mb-6">Projects</h2>
+<h2 class="text-3xl text-cyan-400 mb-10">Projects</h2>
 
-  <!-- FILTER BUTTONS -->
-  <div class="flex flex-wrap gap-3 mb-8">
-    <button onclick="filterProjects('all')" class="px-4 py-2 bg-gray-700 rounded">All</button>
-    <button onclick="filterProjects('java')" class="px-4 py-2 bg-purple-500 rounded">Java</button>
-    <button onclick="filterProjects('python')" class="px-4 py-2 bg-green-500 rounded">Python</button>
-    <button onclick="filterProjects('cpp')" class="px-4 py-2 bg-cyan-500 rounded">C++</button>
-  </div>
+<div class="grid md:grid-cols-2 gap-8">
 
-  <!-- PROJECT CARDS -->
-  <div class="grid md:grid-cols-2 gap-6">
+<!-- PROJECT 1 -->
+<a href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz" target="_blank"
+class="glass p-6 rounded-2xl block">
+<h3 class="text-xl font-bold text-cyan-300">Chemistry Quiz (Python)</h3>
+<p class="text-gray-300 mt-2">
+Interactive Tkinter quiz with MCQs, scoring system, and randomized questions.
+</p>
+<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+</a>
 
-    <div class="project glass p-6 rounded-xl glow" data-lang="python">
-      <h3 class="font-bold">Chemistry Quiz</h3>
-      <p class="text-gray-400">Python Tkinter Quiz App</p>
-    </div>
+<!-- PROJECT 2 -->
+<a href="https://github.com/Hamzahmad6/LibrarySystemCPP" target="_blank"
+class="glass p-6 rounded-2xl block">
+<h3 class="text-xl font-bold text-purple-300">Library System (C++)</h3>
+<p class="text-gray-300 mt-2">
+DSA-based system using arrays, searching, and efficient book management logic.
+</p>
+<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+</a>
 
-    <div class="project glass p-6 rounded-xl glow" data-lang="cpp">
-      <h3 class="font-bold">Library System</h3>
-      <p class="text-gray-400">C++ DSA Project</p>
-    </div>
+<!-- PROJECT 3 -->
+<a href="https://github.com/Hamzahmad6/TicTacToeGame" target="_blank"
+class="glass p-6 rounded-2xl block">
+<h3 class="text-xl font-bold text-pink-300">Tic Tac Toe (Java)</h3>
+<p class="text-gray-300 mt-2">
+2-player console game with full logic, validation, and win detection system.
+</p>
+<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+</a>
 
-    <div class="project glass p-6 rounded-xl glow" data-lang="java">
-      <h3 class="font-bold">Tic Tac Toe</h3>
-      <p class="text-gray-400">Java Console Game</p>
-    </div>
+<!-- PROJECT 4 (NEW) -->
+<a href="https://github.com/Hamzahmad6/Clinic-System" target="_blank"
+class="glass p-6 rounded-2xl block">
+<h3 class="text-xl font-bold text-green-300">Clinic Management System (C++)</h3>
+<p class="text-gray-300 mt-2">
+Console-based system for managing patients, doctors, appointments, and records using OOP.
+</p>
+<p class="text-sm text-gray-500 mt-3">Click to view GitHub →</p>
+</a>
 
-  </div>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="text-center py-20">
-  <h2 class="text-3xl text-cyan-400 mb-4">Contact</h2>
 
-  <p><i class="fa fa-envelope text-cyan-400"></i> Hamzabatawy@gmail.com</p>
-  <p><i class="fab fa-linkedin text-blue-400"></i> linkedin.com/in/hamza-elbatawy</p>
-  <p><i class="fab fa-github text-white"></i> github.com/Hamzahmad6</p>
+<h2 class="text-3xl text-cyan-400 mb-6">Contact</h2>
+
+<p class="mb-2">
+<i class="fa fa-envelope text-cyan-400"></i>
+Hamzabatawy@gmail.com
+</p>
+
+<p class="mb-2">
+<a href="https://linkedin.com/in/hamza-elbatawy" target="_blank"
+class="text-blue-400">
+<i class="fab fa-linkedin"></i> LinkedIn
+</a>
+</p>
+
+<p>
+<a href="https://github.com/Hamzahmad6" target="_blank"
+class="text-white">
+<i class="fab fa-github"></i> GitHub
+</a>
+</p>
+
 </section>
 
 <footer class="text-center py-6 text-gray-500">
-  © 2026 Hamza Ahmed
+© 2026 Hamza Ahmed
 </footer>
 
 <script>
-/* DARK / LIGHT MODE */
-function toggleMode() {
-  document.body.classList.toggle("light");
-}
-
-/* PROJECT FILTER */
-function filterProjects(lang) {
-  const projects = document.querySelectorAll(".project");
-
-  projects.forEach(p => {
-    if (lang === "all") {
-      p.style.display = "block";
-    } else {
-      p.style.display = (p.dataset.lang === lang) ? "block" : "none";
-    }
-  });
-}
-
-/* ANIMATION */
 ScrollReveal().reveal('section', {
-  distance: '40px',
-  duration: 800,
-  origin: 'bottom'
+distance: '40px',
+duration: 900,
+origin: 'bottom'
 });
 </script>
 
