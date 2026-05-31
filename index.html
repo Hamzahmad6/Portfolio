@@ -3,46 +3,63 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hamza Ahmed | Portfolio</title>
+<title>Hamza Ahmed | Software Engineer</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
+/* ===== GLOBAL ===== */
 html {
-  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #0f172a, #111827, #0b1220);
-  color: white;
   font-family: system-ui;
+  color: white;
+  background: radial-gradient(circle at top, #0f172a, #020617, #0b1020);
+  overflow-x: hidden;
 }
 
-/* Reduced section spacing */
-section {
-  min-height: auto;
-  padding: 80px 20px;
-  scroll-snap-align: start;
+/* ===== BACKGROUND ORBS ===== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  animation: float 10s infinite ease-in-out;
 }
 
-/* Glass */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== GLASS ===== */
 .glass {
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.3s;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.35s ease;
 }
 
 .glass:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
-/* Links */
+/* ===== BUTTONS ===== */
+.btn {
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(34,211,238,0.3);
+}
+
+/* ===== LINKS ===== */
 a {
   transition: 0.3s;
 }
@@ -50,46 +67,58 @@ a:hover {
   color: #38bdf8;
 }
 
-/* Soft glow buttons */
-.btn {
-  transition: 0.3s;
+/* ===== SECTION SPACING (FIXED UX ISSUE) ===== */
+section {
+  padding: 90px 20px;
 }
-.btn:hover {
-  transform: scale(1.05);
+
+/* ===== NAV ===== */
+nav {
+  backdrop-filter: blur(20px);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- BACKGROUND EFFECTS -->
+<div class="orb w-80 h-80 bg-cyan-500 top-20 left-10"></div>
+<div class="orb w-96 h-96 bg-purple-600 bottom-10 right-10"></div>
+
+<!-- NAVBAR -->
 <header class="fixed w-full z-50">
 <nav class="glass flex justify-between items-center px-6 py-4 mx-4 mt-4 rounded-2xl">
-<h1 class="text-cyan-400 font-bold">Hamza Ahmed</h1>
 
-<div class="flex gap-5 text-sm">
+<h1 class="text-cyan-400 font-bold text-lg">Hamza Ahmed</h1>
+
+<div class="flex gap-6 text-sm">
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#experience">Experience</a>
 <a href="#contact">Contact</a>
 </div>
+
 </nav>
 </header>
 
 <!-- HERO -->
-<section class="flex flex-col justify-center items-center text-center pt-28">
+<section class="flex flex-col justify-center items-center text-center min-h-screen">
 
-<h1 class="text-5xl md:text-6xl font-bold text-cyan-300">
+<h1 class="text-6xl font-bold text-cyan-300 drop-shadow-lg">
 Hamza Ahmed
 </h1>
 
-<p class="text-gray-300 mt-3">
-Software Engineer · Data Enthusiast
+<p class="text-xl text-gray-300 mt-4">
+Software Engineer · Backend · Data Enthusiast
 </p>
 
-<div class="mt-6 flex gap-4">
-<a href="#projects" class="btn px-6 py-3 bg-cyan-500 text-black rounded-xl">
-View Projects
+<p class="text-gray-400 mt-3 max-w-xl">
+Building scalable systems, REST APIs, and data-driven applications with clean architecture and real-world impact.
+</p>
+
+<div class="mt-8 flex gap-4">
+<a href="#projects" class="btn px-6 py-3 bg-cyan-500 text-black rounded-xl font-bold">
+Explore Work
 </a>
 
 <a href="Hamza_Ahmed_Final.pdf" download class="btn px-6 py-3 bg-purple-600 rounded-xl">
@@ -102,38 +131,59 @@ Download CV
 <!-- ABOUT -->
 <section id="about" class="max-w-4xl mx-auto text-center">
 
-<h2 class="text-3xl text-cyan-300 mb-6">About Me</h2>
+<h2 class="text-3xl text-cyan-300 font-bold mb-6">About Me</h2>
 
 <p class="text-gray-300 leading-relaxed">
 Computer Science sophomore at Nile University with hands-on industry experience building production-grade RESTful APIs,
 full-stack web applications, and object-oriented systems. Completed a software engineering internship designing and
 deploying Java/Spring Boot services against Oracle Database, applying SOLID principles, design patterns, and clean-code
 practices in a professional team environment.
+
 <br><br>
-Enthusiastic about Data and analytics. Actively seeking backend, data analysis, and software engineering internship
-programs where technical depth and clean architecture deliver measurable impact.
+
+Enthusiastic about Data and analytics. Actively seeking backend, data analysis, and software engineering internship programs
+where technical depth and clean architecture deliver measurable impact.
 </p>
 
 </section>
 
-<!-- EDUCATION -->
-<section class="max-w-4xl mx-auto">
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto">
 
-<h2 class="text-3xl text-cyan-300 mb-6 text-center">Education</h2>
+<h2 class="text-3xl text-cyan-300 text-center font-bold mb-10">
+Projects
+</h2>
 
-<div class="glass p-6 rounded-xl">
-<p class="font-bold">Nile University — Cairo, Egypt</p>
-<p class="text-gray-400">Sep 2024 – Present</p>
-<p>Bachelor of Science in Computer Science and Information Technology</p>
-<p class="text-gray-400 mt-2">
-Relevant Coursework: Data Structures & Algorithms · OOP · Java · C++ · Python · Design & Analysis of Algorithms
+<div class="grid md:grid-cols-2 gap-6">
+
+<a href="https://github.com/Hamzahmad6/Clinic-System" target="_blank" class="glass p-6 rounded-2xl">
+<h3 class="text-green-300 font-bold text-lg">Clinic Appointment System (Java)</h3>
+<p class="text-gray-300 mt-2">
+Full OOP system managing doctors, patients, and appointments using clean architecture and menu-driven logic.
 </p>
+</a>
 
-<br>
+<a href="https://github.com/Hamzahmad6/LibrarySystemCPP" target="_blank" class="glass p-6 rounded-2xl">
+<h3 class="text-cyan-300 font-bold text-lg">Library System (C++)</h3>
+<p class="text-gray-300 mt-2">
+DSA-based system with efficient search, CRUD operations, and structured data handling.
+</p>
+</a>
 
-<p class="font-bold">Stanford International School — Cairo, Egypt</p>
-<p class="text-gray-400">Sep 2021 – Jun 2024</p>
-<p>High School Diploma | GPA: 3.85</p>
+<a href="https://github.com/Hamzahmad6/TicTacToeGame" target="_blank" class="glass p-6 rounded-2xl">
+<h3 class="text-purple-300 font-bold text-lg">Tic Tac Toe Game (Java)</h3>
+<p class="text-gray-300 mt-2">
+Interactive console game with win detection, validation, and modular design.
+</p>
+</a>
+
+<a href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz" target="_blank" class="glass p-6 rounded-2xl">
+<h3 class="text-pink-300 font-bold text-lg">Chemistry Quiz (Python)</h3>
+<p class="text-gray-300 mt-2">
+GUI-based quiz application with randomized MCQs, scoring system, and interactive UI.
+</p>
+</a>
+
 </div>
 
 </section>
@@ -141,88 +191,22 @@ Relevant Coursework: Data Structures & Algorithms · OOP · Java · C++ · Pytho
 <!-- EXPERIENCE -->
 <section id="experience" class="max-w-4xl mx-auto">
 
-<h2 class="text-3xl text-cyan-300 mb-6 text-center">Experience</h2>
-
-<div class="glass p-6 rounded-xl">
-
-<p class="font-bold">Alkan Telecom — Software Engineering Intern</p>
-<p class="text-gray-400">Jul – Aug 2025 · Cairo, Egypt</p>
-
-<ul class="list-disc list-inside text-gray-300 mt-3 space-y-2">
-<li>Built production-ready REST APIs using Java & Spring Boot</li>
-<li>Applied SOLID principles and design patterns</li>
-<li>Designed Oracle SQL queries and transactional workflows</li>
-<li>Developed IBM Cloud chatbot using NLP services</li>
-<li>Used Git/GitHub with team-based workflows and code reviews</li>
-</ul>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="max-w-6xl mx-auto">
-
-<h2 class="text-3xl text-cyan-300 text-center mb-8">Projects</h2>
-
-<div class="grid md:grid-cols-2 gap-6">
-
-<!-- 1 -->
-<a href="https://github.com/Hamzahmad6/Clinic-System" target="_blank" class="glass p-6 rounded-xl">
-<h3 class="text-green-300 font-bold">Clinic Appointment System (Java)</h3>
-<p class="text-gray-300 mt-2">
-Full OOP system for managing doctors, patients, and appointments with structured menus and clean architecture.
-</p>
-</a>
-
-<!-- 2 -->
-<a href="https://github.com/Hamzahmad6/LibrarySystemCPP" target="_blank" class="glass p-6 rounded-xl">
-<h3 class="text-cyan-300 font-bold">Library System (C++)</h3>
-<p class="text-gray-300 mt-2">
-DSA-based library management system implementing search, add/remove, and file handling logic with optimized structures.
-</p>
-</a>
-
-<!-- 3 -->
-<a href="https://github.com/Hamzahmad6/TicTacToeGame" target="_blank" class="glass p-6 rounded-xl">
-<h3 class="text-purple-300 font-bold">Tic Tac Toe Game (Java)</h3>
-<p class="text-gray-300 mt-2">
-Two-player console game with input validation, win detection, and modular OOP structure.
-</p>
-</a>
-
-<!-- 4 -->
-<a href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz" target="_blank" class="glass p-6 rounded-xl">
-<h3 class="text-pink-300 font-bold">Chemistry Quiz (Python)</h3>
-<p class="text-gray-300 mt-2">
-Interactive Tkinter-based quiz application with randomized MCQs, scoring system, and GUI interface.
-</p>
-</a>
-
-</div>
-
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="max-w-4xl mx-auto">
-
-<h2 class="text-3xl text-cyan-300 text-center mb-6">
-Certifications & Development
+<h2 class="text-3xl text-cyan-300 font-bold text-center mb-6">
+Experience
 </h2>
 
-<div class="glass p-6 rounded-xl space-y-4">
+<div class="glass p-6 rounded-2xl">
 
-<p>
-<strong>Programming Fundamentals Diploma</strong> — Route Academy (2025)
-<br>
-C++ · OOP · DSA · Java · Database Fundamentals
-</p>
+<p class="font-bold">Alkan Telecom — Software Engineering Intern</p>
+<p class="text-gray-400">Jul – Aug 2025</p>
 
-<p>
-<strong>AI Career Essentials Certificate</strong> — ALX Africa (2024)
-<br>
-AI literacy and practical AI tool application
-</p>
+<ul class="list-disc list-inside text-gray-300 mt-3 space-y-2">
+<li>Built REST APIs using Java & Spring Boot</li>
+<li>Applied SOLID principles & design patterns</li>
+<li>Worked with Oracle SQL databases</li>
+<li>Developed IBM Cloud chatbot system</li>
+<li>Used Git/GitHub workflows in team environment</li>
+</ul>
 
 </div>
 
@@ -231,10 +215,11 @@ AI literacy and practical AI tool application
 <!-- CONTACT -->
 <section id="contact" class="text-center">
 
-<h2 class="text-3xl text-cyan-300 mb-6">Contact</h2>
+<h2 class="text-3xl text-cyan-300 font-bold mb-6">Contact</h2>
 
-<p class="mb-2">
-<i class="fa fa-envelope text-cyan-400"></i> Hamzabatawy@gmail.com
+<p class="text-gray-300 mb-2">
+<i class="fa fa-envelope text-cyan-400"></i> 
+Hamzabatawy@gmail.com
 </p>
 
 <p class="mb-2">
