@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamza Ahmed | Software Developer | Data Analytics Enthusiast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hamza Ahmed | Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -13,201 +13,154 @@
     html { scroll-behavior: smooth; }
 
     .glass {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .glow:hover {
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
       transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(34,211,238,0.4);
       transition: 0.3s;
+    }
+
+    body.light {
+      background: #f5f7fb;
+      color: #111;
+    }
+
+    body.light .glass {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-black via-slate-900 to-indigo-950 text-white">
+<body class="pt-20 bg-gradient-to-br from-black via-slate-900 to-indigo-950 text-white">
 
 <!-- NAVBAR -->
 <header class="fixed w-full glass z-50">
   <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
 
-    <h1 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 text-transparent bg-clip-text">
-      Hamza Ahmed
-    </h1>
+    <h1 class="text-xl font-bold text-cyan-400">Hamza Ahmed</h1>
 
-    <nav class="space-x-6 text-sm">
-      <a href="#about" class="hover:text-cyan-400">About</a>
-      <a href="#skills" class="hover:text-cyan-400">Skills</a>
-      <a href="#projects" class="hover:text-cyan-400">Projects</a>
-      <a href="#experience" class="hover:text-cyan-400">Experience</a>
-      <a href="#contact" class="hover:text-cyan-400">Contact</a>
-    </nav>
+    <div class="flex items-center gap-4">
 
+      <nav class="hidden md:flex gap-4 text-sm">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- DARK MODE TOGGLE -->
+      <button onclick="toggleMode()" class="px-3 py-1 rounded bg-cyan-500 text-black text-sm">
+        🌙 / ☀️
+      </button>
+
+    </div>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
 
-  <h1 class="text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 text-transparent bg-clip-text">
+  <h1 class="text-5xl md:text-6xl font-bold text-cyan-400">
     Hamza Ahmed
   </h1>
 
-  <p class="text-xl mt-4 text-cyan-300">
+  <p class="text-lg mt-3 text-gray-300">
     Software Developer | Data Analytics Enthusiast
   </p>
 
-  <p class="max-w-2xl mt-4 text-gray-300">
-    Building scalable systems, solving real-world problems, and turning data into insights through software engineering.
-  </p>
-
-  <div class="mt-8 flex gap-4">
-
-    <a href="#projects" class="px-6 py-3 bg-cyan-500 rounded-lg glow">
-      View Projects
-    </a>
-
-    <!-- CV DOWNLOAD BUTTON -->
-    <a href="cv.pdf" download class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg glow">
-      📄 Download CV
-    </a>
-
+  <div class="mt-6 flex gap-4">
+    <a href="#projects" class="px-5 py-3 bg-cyan-500 rounded glow text-black">View Projects</a>
+    <a href="cv.pdf" download class="px-5 py-3 bg-purple-500 rounded glow">Download CV</a>
   </div>
 
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="max-w-5xl mx-auto py-20 px-6">
-  <h2 class="text-3xl text-cyan-400 mb-6">About Me</h2>
-  <p class="text-gray-300 leading-relaxed">
-    I am a Computer Science student at Nile University passionate about software engineering and data analytics. I enjoy building real-world systems and extracting meaningful insights from data. I am actively seeking internship opportunities to grow my experience and contribute to impactful projects.
-  </p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="py-20 px-6 bg-black/40">
-  <div class="max-w-5xl mx-auto">
+<section id="skills" class="max-w-5xl mx-auto py-20 px-6">
+  <h2 class="text-3xl text-cyan-400 mb-8">Skills</h2>
 
-    <h2 class="text-3xl text-cyan-400 mb-8">Technical Skills</h2>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <div>
-        <p>C++</p>
-        <div class="h-2 bg-gray-700 rounded">
-          <div class="h-2 bg-cyan-400 rounded" style="width:90%"></div>
-        </div>
-      </div>
-
-      <div>
-        <p>Java</p>
-        <div class="h-2 bg-gray-700 rounded">
-          <div class="h-2 bg-purple-400 rounded" style="width:85%"></div>
-        </div>
-      </div>
-
-      <div>
-        <p>Python</p>
-        <div class="h-2 bg-gray-700 rounded">
-          <div class="h-2 bg-pink-400 rounded" style="width:80%"></div>
-        </div>
-      </div>
-
-      <div>
-        <p>SQL</p>
-        <div class="h-2 bg-gray-700 rounded">
-          <div class="h-2 bg-yellow-400 rounded" style="width:75%"></div>
-        </div>
-      </div>
-
-    </div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div><p>C++</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-cyan-400" style="width:90%"></div></div></div>
+    <div><p>Java</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-purple-400" style="width:85%"></div></div></div>
+    <div><p>Python</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-pink-400" style="width:80%"></div></div></div>
+    <div><p>SQL</p><div class="h-2 bg-gray-700 rounded"><div class="h-2 bg-yellow-400" style="width:75%"></div></div></div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECT FILTERS -->
 <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
 
-  <h2 class="text-3xl text-cyan-400 mb-10">Projects</h2>
+  <h2 class="text-3xl text-cyan-400 mb-6">Projects</h2>
 
-  <div class="grid md:grid-cols-2 gap-8">
+  <!-- FILTER BUTTONS -->
+  <div class="flex gap-3 mb-8 flex-wrap">
+    <button onclick="filterProjects('all')" class="px-4 py-2 bg-gray-700 rounded">All</button>
+    <button onclick="filterProjects('java')" class="px-4 py-2 bg-purple-500 rounded">Java</button>
+    <button onclick="filterProjects('python')" class="px-4 py-2 bg-green-500 rounded">Python</button>
+    <button onclick="filterProjects('cpp')" class="px-4 py-2 bg-cyan-500 rounded">C++</button>
+  </div>
 
-    <div class="glass p-6 rounded-2xl glow">
-      <h3 class="text-xl font-bold">Chemistry Quiz (Python)</h3>
-      <p class="text-gray-300 mt-2">Tkinter GUI quiz with MCQs, scoring system, and randomized questions.</p>
-      <a class="text-cyan-400" href="https://github.com/Hamzahmad6/Python-Chemistry-Quiz">GitHub</a>
+  <!-- PROJECTS -->
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="project glass p-6 rounded-xl glow" data-lang="python">
+      <h3 class="font-bold">Chemistry Quiz</h3>
+      <p class="text-gray-400">Python Tkinter Quiz App</p>
     </div>
 
-    <div class="glass p-6 rounded-2xl glow">
-      <h3 class="text-xl font-bold">Library System (C++ / DSA)</h3>
-      <p class="text-gray-300 mt-2">Data structure-based system with efficient search and operations.</p>
-      <a class="text-cyan-400" href="https://github.com/Hamzahmad6/LibrarySystemCPP">GitHub</a>
+    <div class="project glass p-6 rounded-xl glow" data-lang="cpp">
+      <h3 class="font-bold">Library System</h3>
+      <p class="text-gray-400">C++ DSA Project</p>
     </div>
 
-    <div class="glass p-6 rounded-2xl glow">
-      <h3 class="text-xl font-bold">Tic-Tac-Toe (Java)</h3>
-      <p class="text-gray-300 mt-2">2-player console game with full logic and validation.</p>
-      <a class="text-cyan-400" href="https://github.com/Hamzahmad6/TicTacToeGame">GitHub</a>
-    </div>
-
-    <div class="glass p-6 rounded-2xl glow">
-      <h3 class="text-xl font-bold">GitHub Portfolio</h3>
-      <p class="text-gray-300 mt-2">Showcase of all projects and development work.</p>
-      <a class="text-cyan-400" href="https://github.com/Hamzahmad6">GitHub</a>
+    <div class="project glass p-6 rounded-xl glow" data-lang="java">
+      <h3 class="font-bold">Tic Tac Toe</h3>
+      <p class="text-gray-400">Java Console Game</p>
     </div>
 
   </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="py-20 px-6 bg-black/40">
-
-  <div class="max-w-5xl mx-auto">
-
-    <h2 class="text-3xl text-cyan-400 mb-8">Experience</h2>
-
-    <div class="glass p-6 rounded-2xl">
-
-      <h3 class="text-xl font-bold">Summer Intern – Alkan Telecom</h3>
-      <p class="text-gray-400">July 2025 – August 2025</p>
-
-      <ul class="list-disc list-inside mt-4 text-gray-300 space-y-2">
-        <li>Git & GitHub version control</li>
-        <li>OOP + SOLID principles</li>
-        <li>Spring Boot REST APIs</li>
-        <li>SQL (Oracle)</li>
-        <li>IBM Cloud chatbot development</li>
-      </ul>
-
-    </div>
-
-  </div>
-
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 px-6 text-center">
-
-  <h2 class="text-3xl text-cyan-400 mb-6">Contact</h2>
-
-  <p><i class="fa fa-envelope text-cyan-400"></i> Hamzabatawy@gmail.com</p>
-
-  <p><i class="fab fa-linkedin text-blue-400"></i> linkedin.com/in/hamza-elbatawy</p>
-
-  <p><i class="fab fa-github text-white"></i> github.com/Hamzahmad6</p>
-
+<section id="contact" class="text-center py-20">
+  <h2 class="text-3xl text-cyan-400 mb-4">Contact</h2>
+  <p>Email: Hamzabatawy@gmail.com</p>
+  <p>GitHub: github.com/Hamzahmad6</p>
 </section>
 
-<footer class="text-center py-6 text-gray-400">
+<footer class="text-center py-6 text-gray-500">
   © 2026 Hamza Ahmed
 </footer>
 
 <script>
-  ScrollReveal().reveal('section', {
-    distance: '40px',
-    duration: 800,
-    origin: 'bottom'
+/* DARK MODE */
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+
+/* PROJECT FILTER */
+function filterProjects(lang) {
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach(p => {
+    if (lang === "all") {
+      p.style.display = "block";
+    } else {
+      p.style.display = (p.dataset.lang === lang) ? "block" : "none";
+    }
   });
+}
+
+/* ANIMATION */
+ScrollReveal().reveal('section', {
+  distance: '40px',
+  duration: 800,
+  origin: 'bottom'
+});
 </script>
 
 </body>
